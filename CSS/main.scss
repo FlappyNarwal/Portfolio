@@ -1,0 +1,408 @@
+@import 'Helpers/colors';
+@import 'Helpers/fonts';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: color(Body);
+    font-family: 'Montserrat', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+
+    * {
+        letter-spacing: 0.04em;
+    }
+}
+
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 35px;
+}
+
+h1, h2, h3 {
+    font-size: 24px;
+    color: color(Titles);
+}
+
+h3 {
+    position: relative;
+    text-align: left;
+
+    &::after {
+        content: " ";
+        position: absolute;
+        background: rgba(253, 237, 25, 0.55);
+        border-radius: 32px;
+        // width: 407px; TODO: move later (this is desktop width)
+        width: 100%;
+        // height: 32px; TODO: move later (this is desktop height)
+        height: 16px;
+        left: 0;
+        top: 50%;
+        z-index: -1;
+    }
+}
+
+a {
+    font-size: 21px;
+    color: color(Links);
+    text-decoration: none;
+}
+
+p {
+    font-size: 18px;
+    color: color(Body);  
+    line-height: 1.6em;
+}
+
+img {
+    width: 100%;
+     min-width: 200px;
+}
+
+a button {
+    font-size: 12px;
+    color: color(Links);
+    text-decoration: none;
+    display: inline-block;
+}
+
+button {
+    background: color(Button);
+    border-radius: 46px;
+    border:0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding:16px 28px;
+    font-family: inherit;
+    width: 70%;
+    min-width: 200px;
+    
+    &.desktopBtn {
+        display: none;
+    }
+
+    cursor: pointer;
+}
+
+.polaroid {
+    img {
+        transform: rotate(5deg);
+        width: 100%;
+        max-width: 400px;
+        display: block;
+        margin: auto;
+        image-rendering: -webkit-optimize-contrast;
+        transform-origin: bottom right;
+    }
+}
+
+.purpleBorder {
+    position: relative;
+    margin: 0;
+    margin-bottom: 10px;
+
+    img {
+        width: 95%;
+        height: auto;
+        display: block;
+        margin-right: auto;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    &::after {
+        content: " ";
+        position: absolute;
+        width: 90%;
+        height: 95%;
+        left: 10%;
+        top: 10%;
+        z-index: -1;
+        border: 6px solid rgba(195, 174, 212, 0.55);
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+}
+
+#CV {
+    div {
+        p {
+            padding-bottom: 100px;
+        }
+    }
+}
+
+.bgGradient {
+    margin: 0 -35px;
+    padding: 0 35px;
+
+    margin-bottom: -70px;
+    padding-bottom: 70px;
+
+    background: linear-gradient(113.56deg, #F9F7DF 0%, #EBE3F5 100%);
+
+    img {
+        margin: auto;
+        margin-top: -60px;
+        padding-bottom: 30px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        transform: rotate(3.51deg);
+        max-width: 430px;
+        display: inline-block;
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../Images/backgrounds/Shape.png');
+        background-position-x: right;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: -1;
+        right: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+        max-width: 400px;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../Images/backgrounds/Grid.png');
+        background-position-x: left;
+        background-position-y: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -2;
+        left: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+    }
+}
+
+section {
+    padding: 35px 0;
+
+    &:last-of-type{
+        padding-bottom: 70px;
+    }
+}
+
+section#myWork {
+
+    > div {
+        &:last-child{
+            display: none;
+        }
+
+    }
+}
+
+.bal{
+    width: 70%;
+}
+
+/* Media Query for desktop Devices */
+@media (min-width: 480px) {
+    .wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 146px;
+        padding-right: 146px;
+        padding-top: 53px;
+        max-width: 1080px;
+    }
+
+    main {
+        height: calc(100vh - 53px);
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        text-align: left;
+
+        div {
+            flex: 1 ;
+        }
+
+        button {
+            width: 50%
+        }
+
+        .polaroid {
+            img{
+                margin-right: initial;
+                transition: .4s;
+
+                &:hover {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+
+        &::after {
+            background-position-y: top;
+            top: 20%;
+            height: 350px;
+            background-repeat: repeat;
+
+        }
+
+        &::before {
+            background-position-x: right;
+            background-position-y: center;
+            right: 0%;
+            top: 25%;
+            max-width: initial;
+        }
+    }
+
+    button {
+        &.desktopBtn {
+            display: inline-block;
+        }
+        &.mobileBtn {
+            display: none;
+        }
+    }
+
+    section#myWork {
+        margin-bottom: 160px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.5fr 1fr;
+
+        gap: 30px;
+
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-image: url('../Images/backgrounds/Grid.png');
+            background-position-x: left;
+            background-position-y: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: -2;
+            right: 100%;
+            top: 0;
+            transform: translate(0,-30%);  
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background-image: url('../Images/backgrounds/Grid.png');
+            background-position-x: right;
+            background-position-y: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: -2;
+            left: 100%;
+            top: 30%;
+            transform: translate(0,-30%);  
+        }
+
+
+        > div {
+            max-width: 350px;
+
+            &:nth-child(1) {}
+
+            &:nth-child(2) {
+                margin-top: 30%;
+                margin-left: auto;
+            }
+
+            &:nth-child(3) {
+                margin-left: 20%;
+            }
+
+            &:last-child{
+                display: block;
+                margin-left: 28%;
+                margin-top: 25%;
+            }
+    
+        }
+    }
+
+    section#CV {
+        margin: 0 -146px;
+        padding: 0 146px;
+        text-align: left;
+        
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            transform: translateX( -50%);
+            top: 0;
+            background: linear-gradient(113.56deg, #F9F7DF 0%, #EBE3F5 100%);
+            z-index: -1;
+            overflow: hidden;
+            
+                        // transform: translate(-50%, -50%);
+        }
+
+        > div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            > div {
+                flex: 1;
+                p {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        .bgGradient{
+            background:  none;
+            margin: 0;
+            padding: 0;
+
+            img {
+                margin-top: -130px;
+                margin-bottom: 20px;
+                margin-right: initial;
+
+                transition: .4s;
+                transform-origin: bottom right;
+
+                &:hover {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,349 @@
+@import 'Helpers/colors';
+@import 'Helpers/fonts';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: color(Body);
+    font-family: 'Montserrat', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+
+    * {
+        letter-spacing: 0.04em;
+    }
+}
+
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 35px;
+}
+
+h1, h2, h3 {
+    font-size: 24px;
+    color: color(Titles);
+}
+
+h3 {
+    position: relative;
+    text-align: left;
+
+    &::after {
+        content: " ";
+        position: absolute;
+        background: rgba(253, 237, 25, 0.55);
+        border-radius: 32px;
+        // width: 407px; TODO: move later (this is desktop width)
+        width: 100%;
+        // height: 32px; TODO: move later (this is desktop height)
+        height: 16px;
+        left: 0;
+        top: 50%;
+        z-index: -1;
+    }
+}
+
+a {
+    font-size: 21px;
+    color: color(Links);
+    text-decoration: none;
+}
+
+p {
+    font-size: 18px;
+    color: color(Body);  
+    line-height: 1.6em;
+}
+
+img {
+    width: 100%;
+     min-width: 200px;
+}
+
+a button {
+    font-size: 12px;
+    color: color(Links);
+    text-decoration: none;
+    display: inline-block;
+}
+
+button {
+    background: color(Button);
+    border-radius: 46px;
+    border:0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    padding:16px 28px;
+    font-family: inherit;
+    width: 70%;
+    min-width: 200px;
+    
+    &.desktopBtn {
+        display: none;
+    }
+
+    cursor: pointer;
+
+}
+
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .menuItem a {
+        display: block;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 25px;
+        /* or 208% */
+        
+        text-align: center;
+        letter-spacing: 0.04em;
+        
+        /* Portfolio/Body100 */
+        
+        color: #828485;
+        padding: 22px 0;
+        text-align: left;
+        margin-right: auto;
+    }
+
+}
+
+section {
+    padding: 35px 0;
+
+    &:last-of-type{
+        padding-bottom: 70px;
+    }
+}
+
+
+
+
+
+.plaatjes{
+position: relative;
+overflow: hidden;
+
+    .MotionDesignMockup {
+        width: 100%;
+        transform: translate(-40%, 10px);
+        width: 76vh;
+    }
+
+    .MotionDesignMockup2 {
+        width: 100%;
+        transform: translate(4%, 10px);
+        width: 76vh;  
+     }
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../Images/backgrounds/Shape.png');
+        background-position-x: right;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: -1;
+        right: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+        max-width: 400px;
+    }
+}
+
+.MotionDesign img{
+    padding-bottom: 50px;
+}
+
+.singlePlaatje {
+    position: relative;
+    // overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../Images/backgrounds/Shape.png');
+        background-position-x: right;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: -1;
+        right: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+        max-width: 400px;
+    }
+}
+
+.klikhier{
+    width: auto;
+    display: block;
+    margin-right: auto;
+    padding-bottom: 40px;
+    width: 121px;
+    min-width: auto;
+    margin-left: 35px;
+}
+
+.tabletWrapper {
+    width: 60%;
+    position: relative;
+    margin: auto;
+
+    transform: rotate(-5.56deg);
+    transform-origin: bottom left;
+    transition: .4s;
+    &:hover {
+        
+        transform: rotate(0);
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 94%;
+        height: 94%;
+        background: black;
+    
+        top: 2%;
+        left: 3%;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    iframe {
+        width: 80% !important;
+        right: 0;
+        margin: auto;
+    }
+    
+    #tablet {
+        display: inline-block;
+        margin: auto;
+        width: 100%;
+        object-fit: contain;
+        position: relative;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    }
+}
+
+
+.mobileImages {
+    width: 100%;
+}
+
+
+/* Media Query for desktop Devices */
+@media (min-width: 480px) {
+    .wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 146px;
+        padding-right: 146px;
+        padding-top: 53px;
+        max-width: 1282px;
+    }
+
+    main {
+        height: calc(100vh - 53px);
+        flex-direction: row;
+        align-items: center;
+        gap: 111px;
+        text-align: left;
+
+    .menuItem a {
+        display: inline-block;
+    }
+
+        div {
+            flex: 1 ;
+        }
+
+        button {
+            width: 50%
+        }
+
+
+        &::after {
+            background-position-y: top;
+            top: 20%;
+            height: 350px;
+            background-repeat: repeat;
+
+        }
+
+        &::before {
+            background-position-x: right;
+            background-position-y: center;
+            right: 0%;
+            top: 25%;
+            max-width: initial;
+        }
+    }
+
+    button {
+        &.desktopBtn {
+            display: inline-block;
+        }
+        &.mobileBtn {
+            display: none;
+        }
+    }
+
+
+    .plaatjes{
+        img:first-child{
+            display: block;
+            margin: auto;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            transform: translate(0, 0) rotate(3.06deg);
+            width: 80%;
+        }
+        
+        img:last-child{
+            display: none;
+        }
+        &::before {
+            background-image: url('../Images/backgrounds/Shape2.png');
+            min-width: 100vw;
+        }
+
+    }
+
+    .singlePlaatje {
+        &::before {
+            background-image: url('../Images/backgrounds/Shape2.png');
+            min-width: 100vw;
+        }
+    }
+
+    .klikhier{
+        margin-left: 146px;
+        width: auto;
+    }
+
+    .mobileImages {
+        width: 50%;
+    }
+}

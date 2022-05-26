@@ -1,0 +1,16 @@
+@function color($value) {
+    @if map-has-key($colors, $value) {
+        @return map-get($colors, $value);
+    }
+
+    @warn "Unused `#{$value}` in $colors";
+    @return null;
+}
+
+$colors: (
+    Body: #828485,
+    Titles: #455088,
+    Annotations: #313131,
+    Button: radial-gradient(50% 50% at 50% 50%, #455088 0%, #4A5279 100%),
+    Links: #EEEEEE,
+);
